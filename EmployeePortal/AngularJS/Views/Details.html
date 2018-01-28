@@ -1,0 +1,151 @@
+﻿<div ng-controller="employeeCtrl" class="row col-md-12">
+    <table class="row col-md-12">
+        <thead>
+            <th class="col-md-1">Id</th>
+            <th class="col-md-2">Name</th>
+           <th class="col-md-2">Name Arabic</th>
+           <th class="col-md-1">Age</th>
+        <th class="col-md-2">Email</th>
+        <th class="col-md-2">Mobile</th>
+
+            <th class="col-md-1">Edit</th>
+        <th class="col-md-1">Delete</th>
+        </thead>
+        <tr ng-repeat="emp in EmployeeDetails">
+            <td class="col-md-1">{{emp.Id}}</td>
+            <td class="col-md-2">{{emp.Name}}</td>
+            <td class="col-md-2">{{emp.NameArabic}}</td>
+            <td class="col-md-1">{{emp.Age}}</td>
+            <td class="col-md-2">{{emp.LstAddress[0].Email}}</td>
+            <td class="col-md-2">{{emp.LstAddress[0].MobileNumber}}</td>
+            <td class="col-md-1"><button ng-click="EditEmployeeDetails(emp)">Edit</button></td>
+            <td class="col-md-1"><button ng-click="DeleteEmployeeDetails(emp)">Delete</button></td>
+        </tr>
+        
+    </table>
+    <br/>
+    <div class="row" ng-show="isEditMode">
+        <h1> Edit Employee Details </h1>
+        <table class="row col-md-12">
+            <tr class="col-md-12">
+                <td class="col-md-6">Name <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee name" ng-model="Employee.Name" name="EmployeeName" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Arabic Name <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Arabic Name" ng-model="Employee.NameArabic" name="EmployeeNameArabic" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Age <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Age" ng-model="Employee.Age" name="EmployeeAge" />
+                </td>
+            </tr>
+
+            <tr class="col-md-12">
+                <td class="col-md-6">Address <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" placeholder="Employee Address" ng-model="Employee.LstAddress[0].Address" name="EmployeeAddress" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Mobile Number <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Mobile Number" ng-model="Employee.LstAddress[0].MobileNumber" name="EmployeeMobileNumber" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Email <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="email" required placeholder="Employee Email" ng-model="Employee.LstAddress[0].Email" name="EmployeeEmail" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Company <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Company" ng-model="Employee.LstExp[0].Company" name="EmployeeCompany" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Number Of Years <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Number Of Years" ng-model="Employee.LstExp[0].NumberOfYears" name="EmployeeNumberOfYears" />
+                </td>
+            </tr>
+
+        </table>
+        <table class="col-md-12">
+            <tr>
+                <td class="col-md-6">
+                    <button type="submit" ng-click="UpdateEmployee()">Update Employee</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row" ng-show="isDeleteMode">
+        <h1> Delete Employee Details </h1>
+        <table class="row col-md-12">
+            <tr class="col-md-12">
+                <td class="col-md-6">Name <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee name" ng-model="Employee.Name" name="EmployeeName" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Arabic Name <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Arabic Name" ng-model="Employee.NameArabic" name="EmployeeNameArabic" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Age <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Age" ng-model="Employee.Age" name="EmployeeAge" />
+                </td>
+            </tr>
+
+            <tr class="col-md-12">
+                <td class="col-md-6">Address <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" placeholder="Employee Address" ng-model="Employee.LstAddress[0].Address" name="EmployeeAddress" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Mobile Number <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Mobile Number" ng-model="Employee.LstAddress[0].MobileNumber" name="EmployeeMobileNumber" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Email <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="email" required placeholder="Employee Email" ng-model="Employee.LstAddress[0].Email" name="EmployeeEmail" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Company <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Company" ng-model="Employee.LstExp[0].Company" name="EmployeeCompany" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Number Of Years <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Number Of Years" ng-model="Employee.LstExp[0].NumberOfYears" name="EmployeeNumberOfYears" />
+                </td>
+            </tr>
+
+        </table>
+        <table class="col-md-12">
+            <tr>
+                <td class="col-md-6">
+                    <button type="submit" ng-click="DeleteEmployee()">Delete Employee</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿<div ng-controller="employeeCtrl" class="row col-md-12 form-group" ng-form="EmpCreateForm">
+  
+    <table class="row col-md-12">
+        <tr class="col-md-12">
+            <td class="col-md-12"><span style="color:red"> *</span> fields are mandatory </td>
+        </tr>
+        </table>
+        <table class="row col-md-12">
+            <thead class="col-md-12">
+<th class="col-md-12">Employee Create</th>
+            </thead>
+            <tr class="col-md-12">
+                <td class="col-md-6">Name <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee name" ng-model="Employee.Name" name="EmployeeName" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Arabic Name <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Arabic Name" ng-model="Employee.NameArabic" name="EmployeeNameArabic" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Age <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Age" ng-model="Employee.Age" name="EmployeeAge" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">DOJ <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="date" class="datefields" required placeholder="Employee Date of Join" ng-model="Employee.DateOfJoin" name="EmployeeDateOfJoin" />
+                </td>
+            </tr>
+
+            <tr class="col-md-12">
+                <td class="col-md-6">Address <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" placeholder="Employee Address" ng-model="Employee.LstAddress[0].Address" name="EmployeeAddress" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Mobile Number <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Mobile Number" ng-model="Employee.LstAddress[0].MobileNumber" name="EmployeeMobileNumber" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Email <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="email" required placeholder="Employee Email" ng-model="Employee.LstAddress[0].Email" name="EmployeeEmail" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Company <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Company" ng-model="Employee.LstExp[0].Company" name="EmployeeCompany" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">Number Of Years <span style="color:red">*</span>:</td>
+                <td class="col-md-6">
+                    <input type="text" required placeholder="Employee Number Of Years" ng-model="Employee.LstExp[0].NumberOfYears" name="EmployeeNumberOfYears" />
+                </td>
+            </tr>
+            <tr class="col-md-12">
+                <td class="col-md-6">
+                    <button type="submit" ng-click="InsertEmployee()" class="savechanges" ng-disabled="EmpCreateForm.$invalid">Insert Employee</button>
+
+                </td>
+            </tr>
+
+
+        </table>
+</div>

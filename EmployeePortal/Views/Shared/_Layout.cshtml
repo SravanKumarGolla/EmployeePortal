@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="EmployeeApp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-ui-router.js"></script>
+    <script src="~/AngularJS/app.js"></script>
+    <script src="~/AngularJS/Controllers/employee.js"></script>
+    <script src="~/AngularJS/Services/EmployeeSrvc.js"></script>
+    <script src="~/AngularJS/Common.js"></script>
+    <title>Employee Portal</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Employee Portal
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li id="Create" class="active">
+                    <a ui-sref="Create">Create</a>
+                </li>
+              
+                <li id="List">
+                    <a ui-sref="Read">Details</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </div>
+
+    <style type="text/css">
+        .savechanges[disabled]{
+            opacity:0.5px;
+            background-color:red;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#Create").click(function () {
+                $(this).addClass('active');
+                if ($("#List").hasClass('active')) {
+                    $("#List").removeClass('active')
+                }
+            })
+            $("#List").click(function () {
+                $(this).addClass('active');
+                if ($("#Create").hasClass('active')) {
+                    $("#Create").removeClass('active')
+                }
+            })
+        })
+        </script>
+
+</body>
+</html>
